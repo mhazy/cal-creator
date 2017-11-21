@@ -1,7 +1,7 @@
 import { CALENDAR } from './calendar.actions';
 
 const INITIAL_STATE = {
-  name: 'Work',
+  name: '',
 };
 
 export const calendarReducer = (state = INITIAL_STATE, action) => {
