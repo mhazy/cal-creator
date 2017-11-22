@@ -1,13 +1,19 @@
-import { all } from 'redux-saga/effects';
+import { all } from "redux-saga/effects";
 
-import { watchAuthActions } from '../auth/auth.sagas';
+import {
+  watchForAuthClientReady,
+  watchForAuthClientInit,
+  watchForGoogleClient
+} from "../auth/auth.sagas";
 
 export function* rootSaga() {
   try {
     yield all([
-      watchAuthActions(),
+      watchForAuthClientReady(),
+      watchForAuthClientInit(),
+      watchForGoogleClient()
     ]);
-  } catch (e) {
-    console.log('This blew up!', e);
+  } catch (error) {
+    console.error("Error occurred within sagas", error);
   }
 }

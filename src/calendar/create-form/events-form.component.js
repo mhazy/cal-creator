@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { InputComponent, LabelComponent } from '../../form';
+import { TextInputComponent, LabelComponent } from '../../form';
 
 export const EventsFormComponent = ({
   name,
@@ -9,7 +9,7 @@ export const EventsFormComponent = ({
   <div>
     <div>
     <LabelComponent forInput={ 'calendar_name' }>Pattern</LabelComponent>
-    <InputComponent changed={ changed } value={ name } name={ 'calendar_name' } id={ 'calendar_name ' } />
+    <TextInputComponent changed={ changed } value={ name } name={ 'calendar_name' } id={ 'calendar_name ' } />
     </div>
   </div>
 );

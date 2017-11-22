@@ -1,12 +1,8 @@
-import React from 'react';
-import { CalendarFormComponent } from './form';
+import React from "react";
+import { CreateFormContainerComponent } from "./create-form";
 
-export const CalendarComponent = ({
-  create,
-  name,
-  setName,
-}) => (
+export const CalendarSelectComponent = ({ create, name, setName }) => (
   <div>
-    <CalendarFormComponent name={ name } changed={ (event) => setName(event.target.value) } />
+    <CreateFormContainerComponent />
   </div>
 );

@@ -2,7 +2,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 
 export const GroupComponent = ({ children, title }) =>
-  <fieldset className="">
+  <fieldset className="ph0 mh0 bn">
     <legend>{ title }</legend>
     { children }
   </fieldset>;

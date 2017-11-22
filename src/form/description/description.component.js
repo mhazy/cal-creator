@@ -1,8 +1,9 @@
-import React from 'react';
-import { PropTypes } from 'prop-types';
+import React from "react";
+import { PropTypes } from "prop-types";
 
-export const DescriptionComponent = ({ children }) =>
-  <span className="mb1 db fw3 i lh-copy f6">{ children }</span>;
+export const DescriptionComponent = ({ children }) => (
+  <small className="f6 mb2 db i black-60">{children}</small>
+);
 
 DescriptionComponent.propTypes = {
   children: PropTypes.node

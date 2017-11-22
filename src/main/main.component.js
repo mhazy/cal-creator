@@ -1,19 +1,21 @@
-import React from 'react';
-import { PropTypes } from 'prop-types';
+import React from "react";
+import { PropTypes } from "prop-types";
 
-import { AuthContainerComponent } from '../auth';
-import { CalendarContainerComponent } from '../calendar';
+import { AuthContainerComponent } from "../auth";
+import { CalendarContainerComponent } from "../calendar";
 
-export const MainComponent = ({
-  isAuthorized,
-}) => (
+export const MainComponent = ({ isAuthReady, isAuthorized }) => (
   <div className="measure center pt4">
-    <div className="mb2">
-      <AuthContainerComponent />
-    </div>
-    {
-      isAuthorized && <CalendarContainerComponent />
-    }
+    {isAuthReady ? (
+      <div>
+        <div className="mb2">
+          <AuthContainerComponent />
+        </div>
+        {isAuthorized && <CalendarContainerComponent />}
+      </div>
+    ) : (
+      <div className="tc">Loading dependencies...</div>
+    )}
   </div>
 );
 

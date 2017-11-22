@@ -1,6 +1,7 @@
-import { selectIsAuthorized } from '../auth';
-import { createStructuredSelector } from 'reselect';
+import { selectIsAuthReady, selectIsAuthorized } from "../auth";
+import { createStructuredSelector } from "reselect";
 
 export const storeConnector = createStructuredSelector({
-  isAuthorized: selectIsAuthorized,
+  isAuthReady: selectIsAuthReady,
+  isAuthorized: selectIsAuthorized
 });
