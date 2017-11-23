@@ -6,4 +6,3 @@ export const rootReducer = combineReducers({
   auth: authReducer,
   calendar: calendarReducer,
 });
- 

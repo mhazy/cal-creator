@@ -1,16 +1,18 @@
-import React from "react";
+import React from 'react';
 
-import { GroupComponent, SelectComponent } from "../../form";
-import { ButtonComponent } from "../../button";
+import { GroupComponent, SelectComponent } from '../../form';
+import { ButtonComponent } from '../../button';
 
-export const SelectFormComponent = ({ options, selected, pick, select }) => (
+export const SelectFormComponent = ({
+  options, selected, pick, select,
+}) => (
   <div>
-    <GroupComponent title={"Choose a Calendar"}>
+    <GroupComponent title="Choose a Calendar">
       <div className="mb2">
         <SelectComponent
           options={options}
-          emptyLabel={"- Select a calendar -"}
-          emptyValue={""}
+          emptyLabel="- Select a calendar -"
+          emptyValue=""
           changed={select}
           value={selected}
         />

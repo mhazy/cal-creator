@@ -1,5 +1,5 @@
-import React from "react";
-import { PropTypes } from "prop-types";
+import React from 'react';
+import { PropTypes } from 'prop-types';
 
 export const ButtonComponent = ({ action, children, disabled }) => (
   <button
@@ -14,5 +14,5 @@ export const ButtonComponent = ({ action, children, disabled }) => (
 ButtonComponent.propTypes = {
   action: PropTypes.func,
   children: PropTypes.node,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
 };

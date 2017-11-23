@@ -1,28 +1,28 @@
-import { createSelector, createStructuredSelector } from "reselect";
+import { createSelector, createStructuredSelector } from 'reselect';
 
-import { prop } from "ramda";
+import { prop } from 'ramda';
 
-const selectCalendarState = prop("calendar");
+const selectCalendarState = prop('calendar');
 
 const selectSelectedCalendar = createSelector(
   selectCalendarState,
-  prop("selected")
+  prop('selected'),
 );
 
 const selectCalendarList = createSelector(
   selectCalendarState,
-  prop("calendars")
+  prop('calendars'),
 );
 
 const selectCalendarListOptions = createSelector(
   selectCalendarList,
   calendars =>
-    calendars.map(calendar => ({ value: calendar.id, label: calendar.summary }))
+    calendars.map(calendar => ({ value: calendar.id, label: calendar.summary })),
 );
 
 const storeConnector = createStructuredSelector({
   options: selectCalendarListOptions,
-  selected: selectSelectedCalendar
+  selected: selectSelectedCalendar,
 });
 
 export { storeConnector };

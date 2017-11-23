@@ -1,6 +1,6 @@
-import React from "react";
-import { CreateFormContainerComponent } from "./create-form";
-import { SelectFormContainerComponent } from "./select-form";
+import React from 'react';
+import { CreateFormContainerComponent } from './create-form';
+import { SelectFormContainerComponent } from './select-form';
 
 export const CalendarSelectComponent = ({ reload, picked }) => (
   <div>

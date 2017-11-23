@@ -1,7 +1,7 @@
-import { takeEvery, take, call, race, put, select } from "redux-saga/effects";
-import { CALENDAR, calendarActions } from "../calendar.actions";
-import { selectCalendarName } from "./create-form.selectors";
-import { createCalendar } from "../calendar.api";
+import { takeEvery, take, call, race, put, select } from 'redux-saga/effects';
+import { CALENDAR, calendarActions } from '../calendar.actions';
+import { selectCalendarName } from './create-form.selectors';
+import { createCalendar } from '../calendar.api';
 
 export function* watchForCreateCalendar() {
   yield takeEvery(CALENDAR.CREATE, createNewCalendar);
@@ -16,7 +16,7 @@ function* createNewCalendar() {
 
       const result = yield race({
         success: take(CALENDAR.LIST_SUCCESS),
-        failed: take(CALENDAR.LIST_FAILED)
+        failed: take(CALENDAR.LIST_FAILED),
       });
 
       if (result.success) {
@@ -24,6 +24,6 @@ function* createNewCalendar() {
       }
     }
   } catch (error) {
-    console.error("Failed to create calendar", error);
+    console.error('Failed to create calendar', error);
   }
 }

@@ -1,11 +1,11 @@
 export const AUTH = {
-  AUTHORIZE: "[Auth] Authorize",
-  AUTHORIZED: "[Auth] Authorized",
-  CLIENT_READY: "[Auth] Client Ready",
-  INIT: "[Auth] Init",
-  READY: "[Auth] Ready",
-  LOGIN: "[Auth] Login",
-  LOGOUT: "[Auth] Logout"
+  AUTHORIZE: '[Auth] Authorize',
+  AUTHORIZED: '[Auth] Authorized',
+  CLIENT_READY: '[Auth] Client Ready',
+  INIT: '[Auth] Init',
+  READY: '[Auth] Ready',
+  LOGIN: '[Auth] Login',
+  LOGOUT: '[Auth] Logout',
 };
 
 export const authActions = {
@@ -15,5 +15,5 @@ export const authActions = {
   clientReady: () => ({ type: AUTH.CLIENT_READY }),
   ready: () => ({ type: AUTH.READY }),
   login: () => ({ type: AUTH.LOGIN }),
-  logout: () => ({ type: AUTH.LOGOUT })
+  logout: () => ({ type: AUTH.LOGOUT }),
 };

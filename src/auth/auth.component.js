@@ -11,8 +11,8 @@ export const AuthComponent = ({
   <div>
     {
       isAuthorized
-      ? <ButtonComponent action={ logout }>Logout</ButtonComponent>
-      : <ButtonComponent action={ login }>Authorize with Google</ButtonComponent>
+      ? <ButtonComponent action={logout}>Logout</ButtonComponent>
+      : <ButtonComponent action={login}>Authorize with Google</ButtonComponent>
     }
   </div>
 );
@@ -20,5 +20,5 @@ export const AuthComponent = ({
 AuthComponent.propTypes = {
   doLogin: PropTypes.func,
   doLogout: PropTypes.func,
-  isAuthorized: PropTypes.bool.isRequired
+  isAuthorized: PropTypes.bool.isRequired,
 };

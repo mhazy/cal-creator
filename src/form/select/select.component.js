@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export const SelectComponent = ({
   changed,
@@ -7,7 +7,7 @@ export const SelectComponent = ({
   name,
   emptyLabel,
   emptyValue,
-  value
+  value,
 }) => (
   <select
     id={id}

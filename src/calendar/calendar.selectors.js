@@ -1,15 +1,15 @@
-import { createStructuredSelector, createSelector } from "reselect";
-import { prop } from "ramda";
+import { createStructuredSelector, createSelector } from 'reselect';
+import { prop } from 'ramda';
 
-const selectCalendarState = prop("calendar");
+const selectCalendarState = prop('calendar');
 
 const selectPickedCalendar = createSelector(
   selectCalendarState,
-  prop("picked")
+  prop('picked'),
 );
 
 const storeConnector = createStructuredSelector({
-  picked: selectPickedCalendar
+  picked: selectPickedCalendar,
 });
 
 export { storeConnector };

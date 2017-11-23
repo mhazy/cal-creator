@@ -1,21 +1,21 @@
-import { createSelector, createStructuredSelector } from "reselect";
-import { prop } from "ramda";
+import { createSelector, createStructuredSelector } from 'reselect';
+import { prop } from 'ramda';
 
-const selectAuthState = prop("auth");
+const selectAuthState = prop('auth');
 
-const selectAuthToken = createSelector(selectAuthState, prop("token"));
+const selectAuthToken = createSelector(selectAuthState, prop('token'));
 
-const selectIsAuthorized = createSelector(selectAuthState, prop("authorized"));
+const selectIsAuthorized = createSelector(selectAuthState, prop('authorized'));
 
-const selectIsAuthReady = createSelector(selectAuthState, prop("ready"));
+const selectIsAuthReady = createSelector(selectAuthState, prop('ready'));
 
 const storeConnector = createStructuredSelector({
-  isAuthorized: selectIsAuthorized
+  isAuthorized: selectIsAuthorized,
 });
 
 export {
   selectAuthToken,
   selectIsAuthorized,
   selectIsAuthReady,
-  storeConnector
+  storeConnector,
 };

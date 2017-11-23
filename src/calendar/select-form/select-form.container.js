@@ -1,14 +1,12 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import { SelectFormComponent } from "./select-form.component";
-import { storeConnector } from "./select-form.selectors";
-import { calendarActions } from "../calendar.actions";
+import { SelectFormComponent } from './select-form.component';
+import { storeConnector } from './select-form.selectors';
+import { calendarActions } from '../calendar.actions';
 
 const actions = {
   select: calendarActions.select,
-  pick: calendarActions.pick
+  pick: calendarActions.pick,
 };
 
-export const SelectFormContainerComponent = connect(storeConnector, actions)(
-  SelectFormComponent
-);
+export const SelectFormContainerComponent = connect(storeConnector, actions)(SelectFormComponent);

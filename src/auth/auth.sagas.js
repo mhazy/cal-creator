@@ -1,7 +1,7 @@
-import { takeEvery, call, put } from "redux-saga/effects";
-import { delay } from "redux-saga";
-import { AUTH, authActions } from "./auth.actions";
-import { initialize, authorize, loadClient } from "./auth.api";
+import { takeEvery, call, put } from 'redux-saga/effects';
+import { delay } from 'redux-saga';
+import { AUTH, authActions } from './auth.actions';
+import { initialize, authorize, loadClient } from './auth.api';
 
 export function* watchForAuthClientReady() {
   yield takeEvery(AUTH.CLIENT_READY, handleClientReady);
@@ -31,7 +31,7 @@ function* handleClientReady() {
     yield call(loadClient);
     yield put(authActions.initialize());
   } catch (err) {
-    console.error("Failed to load auth client", err);
+    console.error('Failed to load auth client', err);
   }
 }
 
@@ -40,7 +40,7 @@ function* handleInit() {
     yield call(initialize);
     yield put(authActions.ready());
   } catch (err) {
-    console.error("Failed to initialize Google auth", err);
+    console.error('Failed to initialize Google auth', err);
   }
 }
 
@@ -49,6 +49,6 @@ function* handleAuthorize() {
     const result = yield call(authorize);
     yield put(authActions.authorized(result));
   } catch (err) {
-    console.error("Failed to authorize");
+    console.error('Failed to authorize');
   }
 }

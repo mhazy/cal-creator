@@ -1,8 +1,8 @@
-import React from "react";
-import { PropTypes } from "prop-types";
+import React from 'react';
+import { PropTypes } from 'prop-types';
 
-import { AuthContainerComponent } from "../auth";
-import { CalendarContainerComponent } from "../calendar";
+import { AuthContainerComponent } from '../auth';
+import { CalendarContainerComponent } from '../calendar';
 
 export const MainComponent = ({ isAuthReady, isAuthorized }) => (
   <div className="measure center pt4">
@@ -20,5 +20,5 @@ export const MainComponent = ({ isAuthReady, isAuthorized }) => (
 );
 
 MainComponent.propTypes = {
-  isAuthorized: PropTypes.bool
+  isAuthorized: PropTypes.bool,
 };
