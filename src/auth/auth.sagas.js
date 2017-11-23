@@ -18,6 +18,7 @@ export function* watchForAuthorize() {
 export function* watchForGoogleClient() {
   while (true) {
     yield call(delay, 100);
+    // Wait for gapi to be ready
     if (window.gapi && window.gapi.load) {
       yield put(authActions.clientReady());
       return;
@@ -30,7 +31,7 @@ function* handleClientReady() {
     yield call(loadClient);
     yield put(authActions.initialize());
   } catch (err) {
-    console.error("Failed to load auth client");
+    console.error("Failed to load auth client", err);
   }
 }
 
@@ -39,7 +40,7 @@ function* handleInit() {
     yield call(initialize);
     yield put(authActions.ready());
   } catch (err) {
-    console.error("Failed to initialize Google auth");
+    console.error("Failed to initialize Google auth", err);
   }
 }
 

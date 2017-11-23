@@ -12,6 +12,7 @@ export const calendarReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case CALENDAR.PICK:
       return {
+        ...state,
         picked: state.selected
       };
     case CALENDAR.LIST_SUCCESS:

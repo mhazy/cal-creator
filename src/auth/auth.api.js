@@ -17,7 +17,7 @@ export const authorize = () => {
 
 export const loadClient = () => {
   return new Promise((resolve, reject) => {
-    window.gapi.load("client:auth2", () => {
+    return window.gapi.load("client:auth2", () => {
       resolve();
     });
   });

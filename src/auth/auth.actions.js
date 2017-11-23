@@ -1,11 +1,11 @@
 export const AUTH = {
-  AUTHORIZE: "[AUTH] Authorize",
-  AUTHORIZED: "[AUTH] Authorized",
-  CLIENT_READY: "[AUTH] Client Ready",
-  INIT: "[AUTH] Init",
-  READY: "[AUTH] Ready",
-  LOGIN: "[AUTH] Login",
-  LOGOUT: "[AUTH] Logout"
+  AUTHORIZE: "[Auth] Authorize",
+  AUTHORIZED: "[Auth] Authorized",
+  CLIENT_READY: "[Auth] Client Ready",
+  INIT: "[Auth] Init",
+  READY: "[Auth] Ready",
+  LOGIN: "[Auth] Login",
+  LOGOUT: "[Auth] Logout"
 };
 
 export const authActions = {

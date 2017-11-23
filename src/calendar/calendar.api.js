@@ -14,6 +14,9 @@ export const getCalendars = () => {
 };
 
 export const createCalendar = summary => {
+  if (!summary) {
+    return false;
+  }
   return window.gapi.client.calendar.calendars
     .insert({
       summary,

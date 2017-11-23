@@ -8,24 +8,22 @@ export function* watchForCreateCalendar() {
 }
 
 function* createNewCalendar() {
-  const name = yield select(selectCalendarName);
-  if (name) {
-    try {
-      const newCalendar = yield call(createCalendar, name);
-      if (newCalendar !== false) {
-        yield put(calendarActions.list());
+  try {
+    const name = yield select(selectCalendarName);
+    const newCalendar = yield call(createCalendar, name);
+    if (newCalendar !== false) {
+      yield put(calendarActions.list());
 
-        const result = yield race({
-          success: take(CALENDAR.LIST_SUCCESS),
-          failed: take(CALENDAR.LIST_FAILED)
-        });
+      const result = yield race({
+        success: take(CALENDAR.LIST_SUCCESS),
+        failed: take(CALENDAR.LIST_FAILED)
+      });
 
-        if (result.success) {
-          yield put(calendarActions.select(newCalendar.id));
-        }
+      if (result.success) {
+        yield put(calendarActions.select(newCalendar.id));
       }
-    } catch (error) {
-      console.error("Failed to create calendar", error);
     }
+  } catch (error) {
+    console.error("Failed to create calendar", error);
   }
 }
