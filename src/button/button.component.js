@@ -1,7 +1,8 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
-export const ButtonComponent = ({ action, children, disabled }) => (
+const noop = () => {};
+export const ButtonComponent = ({ action = noop, children, disabled }) => (
   <button
     className="b ph3 pv2 input-reset ba b--black bg-transparent pointer f6 dib"
     onClick={action}
@@ -11,8 +12,13 @@ export const ButtonComponent = ({ action, children, disabled }) => (
   </button>
 );
 
+ButtonComponent.defaultProps = {
+  children: '',
+  disabled: false,
+};
+
 ButtonComponent.propTypes = {
-  action: PropTypes.func,
+  action: PropTypes.func.isRequired,
   children: PropTypes.node,
   disabled: PropTypes.bool,
 };

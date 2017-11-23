@@ -12,7 +12,7 @@ export const authorize = () => {
 };
 
 export const loadClient = () =>
-  new Promise((resolve, reject) =>
+  new Promise(resolve =>
     window.gapi.load('client:auth2', () => {
       resolve();
     }));
