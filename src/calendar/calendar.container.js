@@ -5,8 +5,7 @@ import { storeConnector } from "./calendar.selectors";
 import { calendarActions } from "./calendar.actions";
 
 const actions = {
-  setName: calendarActions.setName,
-  create: calendarActions.create
+  reload: calendarActions.list
 };
 
 export const CalendarContainerComponent = connect(storeConnector, actions)(

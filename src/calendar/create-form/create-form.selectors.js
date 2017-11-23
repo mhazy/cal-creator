@@ -10,4 +10,4 @@ const storeConnector = createStructuredSelector({
   name: selectCalendarName
 });
 
-export { storeConnector };
+export { selectCalendarName, storeConnector };

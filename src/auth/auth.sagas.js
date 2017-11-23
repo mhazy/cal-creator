@@ -2,10 +2,6 @@ import { takeEvery, take, call, put } from "redux-saga/effects";
 import { delay, eventChannel, END } from "redux-saga";
 import { AUTH, authActions } from "./auth.actions";
 
-export function* watchAuthActions() {
-  yield takeEvery([AUTH.LOGIN, AUTH.LOGOUT], handleAuthLogin);
-}
-
 export function* watchForAuthClientReady() {
   yield takeEvery(AUTH.CLIENT_READY, handleClientReady);
 }
@@ -14,9 +10,13 @@ export function* watchForAuthClientInit() {
   yield takeEvery(AUTH.INIT, handleInit);
 }
 
+export function* watchForAuthorize() {
+  yield takeEvery(AUTH.AUTHORIZE, handleAuthorize);
+}
+
 export function* watchForGoogleClient() {
   while (true) {
-    yield call(delay, 500);
+    yield call(delay, 100);
     if (window.gapi && window.gapi.load) {
       yield put(authActions.clientReady());
       return;
@@ -79,6 +79,33 @@ function* handleInit() {
   }
 }
 
-function handleAuthLogin(action) {
-  console.log("SAGA", action);
+function authorize() {
+  return eventChannel(emit => {
+    const auth = window.gapi.auth2.getAuthInstance();
+
+    auth
+      .signIn()
+      .then(result => result.getAuthResponse())
+      .then(result => {
+        emit(result);
+        emit(END);
+      })
+      .catch(err => {
+        emit(false);
+        emit(END);
+      });
+
+    return () => {};
+  });
+}
+
+function* handleAuthorize() {
+  const chan = yield call(authorize);
+  while (true) {
+    const authorizedResult = yield take(chan);
+    if (authorizedResult !== false) {
+      yield put(authActions.authorized(authorizedResult));
+    }
+    return;
+  }
 }
