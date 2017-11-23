@@ -26,7 +26,9 @@ export const CreateFormComponent = ({ name, changed, create }) => (
           placeholder={"e.g. Work"}
         />
       </div>
-      <ButtonComponent action={create}>Create</ButtonComponent>
+      <ButtonComponent action={create} disabled={!name}>
+        Create
+      </ButtonComponent>
     </GroupComponent>
   </div>
 );

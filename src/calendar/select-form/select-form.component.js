@@ -15,7 +15,9 @@ export const SelectFormComponent = ({ options, selected, pick, select }) => (
           value={selected}
         />
       </div>
-      <ButtonComponent action={pick}>Use this calendar</ButtonComponent>
+      <ButtonComponent action={pick} disabled={!selected}>
+        Use this calendar
+      </ButtonComponent>
     </GroupComponent>
   </div>
 );
